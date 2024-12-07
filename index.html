@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish Calculator</title>
+
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" class="display"  id="screen" placeholder="0">
+    <div class="buttons">
+      <button class="button clear" onclick="clearScreen()">C</button>
+      <button class="button" onclick="calculator(7)">7</button>
+      <button class="button" onclick="calculator(8)">8</button>
+      <button class="button"onclick="calculator(9)">9</button>
+      <button class="button operator" onclick="calculator(/)">/</button>
+      <button class="button" onclick="calculator(4)">4</button>
+      <button class="button" onclick="calculator(5)">5</button>
+      <button class="button" onclick="calculator(6)">6</button>
+      <button class="button operator" onclick="calculator(*)">*</button>
+      <button class="button" onclick="calculator(1)">1</button>
+      <button class="button" onclick="calculator(2)">2</button>
+      <button class="button" onclick="calculator(3)">3</button>
+      <button class="button operator" onclick="calculator(-)">-</button>
+      <button class="button" onclick="calculator(0)">0</button>
+      <button class="button" onclick="calculator(.)">.</button>
+      <button class="button operator" onclick="calculator(+)">+</button>
+      <button class="button equal" onclick="calculator(=)">=</button>
+    </div>
+  </div>
+
+
+<!-- js -->
+
+<script>
+
+    // clear screen button
+    function clearScreen() {
+        document.getElementById("screen").value = "";
+    }
+
+    // calculator button
+    function calculator(jannat){
+        document.getElementById('screen').value += jannat;
+
+    }
+
+
+    // answer function
+    function answer(){
+        let x = document.getElementById("screen").value;
+        let y = eval(x);
+        document.getElementById('screen').value = y
+    }
+
+
+</script>
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .calculator {
+      width: 320px;
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    .display {
+      width: 100%;
+      height: 60px;
+      background: #111827;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 2rem;
+      text-align: right;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .button {
+      background: #4b5563;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.5rem;
+      padding: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background: #374151;
+    }
+    .button.operator {
+      background: #2563eb;
+    }
+    .button.operator:hover {
+      background: #1e40af;
+    }
+    .button.equal {
+      background: #10b981;
+      grid-column: span 2; /* Equal button spans two columns */
+    }
+    .button.equal:hover {
+      background: #059669;
+    }
+    .button.clear {
+      background: #e53e3e; /* Red color for clear button */
+    }
+    .button.clear:hover {
+      background: #c53030; /* Darker red on hover */
+    }
+  </style>
+</body>
+</html>
